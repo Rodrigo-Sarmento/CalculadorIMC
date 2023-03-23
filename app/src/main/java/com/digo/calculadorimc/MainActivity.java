@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etPeso;
     private EditText etAltura;
     private TextView teResultado;
+    private TextView teSituacao;
     private Button btCalcular;
     private Button btLimpar;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         etPeso = findViewById(R.id.etPeso);
         etAltura = findViewById(R.id.etAltura);
         teResultado = findViewById(R.id.teResultado);
+        teSituacao = findViewById(R.id.teSituacao);
         btCalcular = findViewById(R.id.btCalcular);
         btLimpar = findViewById(R.id.btLimpar);
 
@@ -61,11 +63,25 @@ public class MainActivity extends AppCompatActivity {
         double altura = Double.parseDouble(etAltura.getText().toString());
         double imc = peso / Math.pow(altura,2);
         teResultado.setText(new DecimalFormat("0.00").format(imc));
+        if(imc >= 18.5 && imc <= 24.9){
+            teSituacao.setText("Parabéns-você está em seu peso normal!");
+        }else if(imc > 24.9 && imc <= 29.9){
+            teSituacao.setText("Você está acima de seu peso(sobrepeso).");
+        }else if(imc > 29.9 && imc <= 34.9){
+            teSituacao.setText("Obesidade grau 1.");
+        }else if(imc > 34.9 && imc <= 39.9){
+            teSituacao.setText("Obesidade grau 2(severa).");
+        }else if(imc > 39.9){
+            teSituacao.setText("Obesidade grau 3(mórbida).");
+        }else if(imc < 18.5){
+            teSituacao.setText("Você está abaixo de seu peso");
+        }
     }
 
     private void btLimparOnClick(){
         etPeso.setText("");
         etAltura.setText("");
-        teResultado.setText("0.0");
+        teResultado.setText("IMC");
+        teSituacao.setText("Situação");
     }
 }

@@ -3,13 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PESO:"
-        android:textSize="20dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -17,54 +13,69 @@
         android:id="@+id/etPeso"
         android:inputType="numberDecimal"
         android:text=""
-        android:hint="DIGITE O PESO EM KILOGRAMAS!"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:hint="Peso em kg"
         android:maxLength="8"
-        android:textSize="20dp"/>
+        android:textSize="40dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ALTURA:"
-        android:textSize="20dp" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etAltura"
         android:inputType="numberDecimal"
         android:text=""
-        android:hint="DIGITE A ALTURA EM METROS
-QUADRADOS!"/>
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:maxLength="7"
+        android:hint="Altura em m²"
+        android:textSize="40dp"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="IMC:"
-        android:textSize="20dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/teResultado"
-        android:text="0,0"
+        android:layout_gravity="center"
+        android:text="IMC"
+        android:textSize="45dp"
+        android:textColor="#F10757"
+        android:paddingTop="50dp"/>
+
+    <TextView
+        android:id="@+id/teSituacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:text="Situação"
         android:textSize="20dp"
-        android:textColor="#FF00FF"/>
+        android:paddingBottom="50dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
         <Button
+            android:id="@+id/btCalcular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btCalcular"
+            android:background="#AAEE97"
+            android:onClick="btCalcularOnclick"
             android:text="CALCULAR"
             android:textSize="20dp"
-            android:onClick="btCalcularOnclick"/>
+            android:layout_marginHorizontal="10dp"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btLimpar"
             android:text="LIMPAR"
             android:textSize="20dp"
-            android:onClick="btLimparOnclick"/>
+            android:onClick="btLimparOnclick"
+            android:background="#EA7995"
+            android:layout_marginHorizontal="10dp"/>
     </LinearLayout>
 </LinearLayout>
