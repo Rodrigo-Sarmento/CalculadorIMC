@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,8 +17,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText etAltura;
     private TextView teResultado;
     private TextView teSituacao;
+    private TextView tePesoIdeal;
     private Button btCalcular;
     private Button btLimpar;
+    private RadioButton rbMasculino;
+    private RadioButton rbFeminino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +32,11 @@ public class MainActivity extends AppCompatActivity {
         etAltura = findViewById(R.id.etAltura);
         teResultado = findViewById(R.id.teResultado);
         teSituacao = findViewById(R.id.teSituacao);
+        tePesoIdeal = findViewById(R.id.tePesoIdeal);
         btCalcular = findViewById(R.id.btCalcular);
         btLimpar = findViewById(R.id.btLimpar);
+        rbMasculino = findViewById(R.id.rbMasculino);
+        rbFeminino = findViewById(R.id.rbFeminino);
 
         btCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,10 +66,21 @@ public class MainActivity extends AppCompatActivity {
             etAltura.requestFocus();
             return;
         }
+
         double peso = Double.parseDouble(etPeso.getText().toString());
         double altura = Double.parseDouble(etAltura.getText().toString());
         double imc = peso / Math.pow(altura,2);
         teResultado.setText(new DecimalFormat("0.00").format(imc));
+        double pesoIdeal = 0;
+
+        if(rbMasculino.isChecked()){
+            pesoIdeal = 22 * (altura * altura);
+            tePesoIdeal.setText("Seu peso ideal é "+new DecimalFormat("0.00").format(pesoIdeal)+"kg");
+        }else if(rbFeminino.isChecked()){
+            pesoIdeal = 21 * (altura * altura);
+            tePesoIdeal.setText("Seu peso ideal é "+new DecimalFormat("0.00").format(pesoIdeal)+"kg");
+        }
+
         if(imc >= 18.5 && imc <= 24.9){
             teSituacao.setText("Parabéns-você está em seu peso normal!");
         }else if(imc > 24.9 && imc <= 29.9){
@@ -83,5 +101,6 @@ public class MainActivity extends AppCompatActivity {
         etAltura.setText("");
         teResultado.setText("IMC");
         teSituacao.setText("Situação");
+        tePesoIdeal.setText("Peso Ideal");
     }
 }
