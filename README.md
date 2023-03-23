@@ -64,6 +64,8 @@ Garantia de funcionamento a partir da versão 7.0 do Android
 
 Você pode [acessar o código fonte do projeto](https://github.com/Rodrigo-Sarmento/CalculadorIMC) ou [baixá-lo](https://github.com/Rodrigo-Sarmento/CalculadorIMC/archive/refs/heads/main.zip).
 
+Você também pode baixar o aplicativo em seu celular baixando o [CalculadorIMC.APK](https://github.com/Rodrigo-Sarmento/CalculadorIMC/releases/tag/1.0)
+
 ## Abrir e rodar o projeto
 
 Após baixar o projeto, você pode abrir com o `Android Studio`. Para isso, na tela de launcher clique em:
